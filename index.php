@@ -27,6 +27,7 @@
                 <button class="inputSubmit" type="submit">Iniciar Sesión</button>
             </form>
             <a href="Paginas/iniciarSesionAdministrador.php">Iniciar sesión como administrador</a>
+            <a href="Paginas/registroUsuario.php">Registrarse como usuario</a>
         </div>
     </main>
 </body>

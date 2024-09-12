@@ -27,6 +27,7 @@
             <button class="inputSubmit" type="submit">Iniciar Sesión</button>
         </form>
         <a href="../index.php">Iniciar sesión como usuario</a>
+
     </div>
 </main>
 </body>
