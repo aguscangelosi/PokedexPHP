@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../Styles/inicio.css"> <!-- Enlace al archivo CSS -->
 </head>
 <body>
-<nav class="nav">
-    <img class="logo" src="../Imagenes/LogoPokedex.png" alt="Logo Pokedex">
-</nav>
+<?php
+include ("../Layouts/header.php");
+?>
 
 <main>
     <div class="containerMain">
@@ -18,8 +18,8 @@
         <!-- Formulario de búsqueda -->
         <form action="buscar.php" method="GET">
             <div class="camposFormulario">
-                <label for="search">Buscar Pokémon:</label>
-                <input type="text" class="inputTexto" id="search" name="search" placeholder="Escribe el nombre de un pokémon">
+                <label for="search">Buscar Pokemon:</label>
+                <input type="text" class="inputTexto" id="search" name="search" placeholder="Escribe el nombre de un pokemon">
             </div>
             <input type="submit" class="inputSubmit" value="Buscar">
         </form>

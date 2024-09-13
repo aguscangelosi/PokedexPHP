@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="../Styles/registro.css"> <!-- Enlace al archivo CSS -->
 </head>
 <body>
-<nav class="nav">
-    <img class="logo" src="../Imagenes/LogoPokedex.png" alt="Logo Pokedex">
-</nav>
+<?php
+include ("../Layouts/header.php");
+?>
 
 <main>
     <div class="containerMain">

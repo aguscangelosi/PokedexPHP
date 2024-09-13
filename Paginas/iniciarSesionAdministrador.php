@@ -7,9 +7,9 @@
     <title>Poedex | Iniciar Sesión Administrador</title>
 </head>
 <body>
-<nav class="nav">
-    <img class="logo" src="../Imagenes/LogoPokedex.png">
-</nav>
+<?php
+include ("../Layouts/header.php");
+?>
 
 <main>
     <div class="containerMain">
