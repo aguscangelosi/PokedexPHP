@@ -1,7 +1,6 @@
 <?php
 
 $config = parse_ini_file('configBD.ini');
-
 $conn = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
 
 if (!$conn) {
