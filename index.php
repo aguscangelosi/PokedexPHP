@@ -26,8 +26,8 @@ include ("Layouts/header.php");
                 </div>
                 <button class="inputSubmit" type="submit">Iniciar Sesión</button>
             </form>
-            <a href="Paginas/iniciarSesionAdministrador.php">Iniciar sesión como administrador</a>
-            <a href="Paginas/registroUsuario.php">Registrarse como usuario</a>
+
+            <a href="Paginas/registroUsuario.php">Registrarse</a>
         </div>
     </main>
 </body>
