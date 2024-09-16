@@ -1,0 +1,80 @@
+ul{
+margin: 0;
+padding: 0;
+}
+
+body{
+background-color: #00003c;
+}
+
+.header{
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.logo{
+width: 300px;
+height: auto;
+}
+
+.nav{
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.contenedor-nav{
+display: flex;
+justify-content: space-between;
+}
+
+.contenedor-isologo{
+text-align: start;
+}
+
+.contenedor-logo{
+text-align: center;
+}
+
+.contenedor-sesion{
+    display: flex;
+    color: white;
+    margin-right: 20px;
+}
+
+.contenedor-sesion h3{
+    align-content: center;
+    font-size: xx-large;
+}
+
+#boton-ingreso{
+margin-right: 10px;
+}
+
+input {
+width: 160px;
+height: 40px;
+}
+button {
+width: 160px;
+height: 40px;
+}
+
+.input-principal{
+display: flex;
+}
+
+a{
+align-content: center;
+border: transparent;
+background-color: white;
+border-radius: 10px;
+}
+
+#input-nav{
+width: 90%;
+height: 40px;
+border-radius: 10px;
+}
