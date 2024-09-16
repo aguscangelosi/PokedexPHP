@@ -1,10 +1,14 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex | Registro</title>
-    <link rel="stylesheet" href="../Styles/registro.css"> <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="../Styles/registro.css">
 </head>
 <body>
 <?php
@@ -15,8 +19,7 @@ include ("../Layouts/header.php");
     <div class="containerMain">
         <h1>Registrarse</h1>
 
-        <!-- Formulario de registro -->
-        <form action="registro.php" method="POST">
+        <form action="register.php" method="POST">
             <div class="camposFormulario">
                 <label for="username">Usuario:</label>
                 <input type="text" class="inputTexto" id="username" name="username" placeholder="Ingrese su usuario" required>
@@ -36,6 +39,13 @@ include ("../Layouts/header.php");
                 <label for="mail">Ingrese su correo electronico</label>
                 <input type="email" class="inputTexto" id="email" name="email" placeholder="Ingrese su correo electronico">
             </div>
+
+            <?php
+            if (isset($_SESSION['error'])) {
+                echo '<p style="color: red;">' . $_SESSION['error'] . '</p>';
+                unset($_SESSION['error']);
+            }
+            ?>
 
             <input type="submit" class="inputSubmit" value="Registrarse">
         </form>
