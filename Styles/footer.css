@@ -1,0 +1,9 @@
+footer{
+    text-align: center;
+    color: white;
+    background-color: #10105a;
+    font-family: Arial;
+    padding: 5px;
+    border: 1px solid cadetblue;
+    border-radius: 5px;
+}
