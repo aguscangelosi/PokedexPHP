@@ -1,11 +1,8 @@
 <?php
 
-$config = parse_ini_file('configBD.ini');
-$conn = mysqli_connect($config['host'], $config['username'], $config['password'], $config['database']);
+require_once('config/Database.php');
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$conn = (new Database)->getConnection();
 
 
 $query = "SELECT id, 

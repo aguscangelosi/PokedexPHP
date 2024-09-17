@@ -15,7 +15,7 @@ include ("Layouts/header.php");
         <div class="containerMain">
             <h1>Iniciar Sesión</h1>
 
-            <form method="POST" action="">
+            <form method="POST" action="auth.php">
                 <div class="camposFormulario">
                     <label for="username">Usuario:</label>
                     <input class="inputTexto" type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
@@ -27,7 +27,6 @@ include ("Layouts/header.php");
                 <button class="inputSubmit" type="submit">Iniciar Sesión</button>
             </form>
 
-            <a href="Paginas/registroUsuario.php">Registrarse</a>
         </div>
     </main>
 </body>
