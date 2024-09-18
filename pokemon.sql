@@ -1,6 +1,6 @@
 -- Creacion de base de datos
-CREATE DATABASE IF NOT EXISTS test;
-
+DROP DATABASE IF EXISTS test;
+CREATE DATABASE test;
 -- Seleccion de la base de datos creada
 USE test;
 
@@ -82,16 +82,16 @@ Snorlax tiene siempre los ojos cerrados incluso estando despierto, por lo que es
 INSERT INTO rol (description)
 values ('admin');
 INSERT INTO rol (description)
-values ('user')
+values ('user');
 
 -- Insertar valores en tabla login
-INSERT INTO usuario (username, pass, rol_id)
+INSERT INTO usuario (username, password, rol_id)
 VALUES ('admin', 'admin', 1);
-INSERT INTO usuario (username, pass, rol_id)
-VALUES ('agustina', '123456');
-INSERT INTO usuario (username, pass, rol_id)
-VALUES ('facundo', '123456');
-INSERT INTO usuario (username, pass, rol_id)
-VALUES ('ezequiel', '123456');
+INSERT INTO usuario (username, password, rol_id)
+VALUES ('agustina', '123456', 2);
+INSERT INTO usuario (username, password, rol_id)
+VALUES ('facundo', '123456', 2);
+INSERT INTO usuario (username, password, rol_id)
+VALUES ('ezequiel', '123456', 2);
 
 
