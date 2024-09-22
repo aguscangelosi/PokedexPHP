@@ -7,7 +7,7 @@ include ('../Layouts/headerAdmin.php');
 <main>
     <h1>Añadir Pokemón</h1>
     <div id="contenedor-principal">
-        <form id="agregar-pokemon" action="inicioAgregarPokemon.php" method="post">
+        <form id="agregar-pokemon" action="logicaAgregarPokemon.php" method="post">
             <label>Ingrese nombre del pokemon</label>
                 <input class="input-add" type="text" name="nombre-pokemon" required>
             <label>Ingrese numero de identificación</label>
