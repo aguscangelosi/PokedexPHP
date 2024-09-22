@@ -1,43 +1,40 @@
 <?php
+include ("../Layouts/header.php");
 session_start();
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex | Registro</title>
-    <link rel="stylesheet" href="../Styles/registro.css">
-</head>
-<body>
-<?php
-include ("../Layouts/header.php");
-?>
-
-<main>
-    <div class="containerMain">
-        <h1>Registrarse</h1>
-
         <form action="register.php" method="POST">
-            <div class="camposFormulario">
-                <label for="username">Usuario:</label>
-                <input type="text" class="inputTexto" id="username" name="username" placeholder="Ingrese su usuario" required>
+
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mx-auto p-2">
+
+                        <div class="form-floating m-2">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required>
+                            <label for="floatingInput">Usuario</label>
+                        </div>
+
+                        <div class="form-floating m-2">
+                            <input type="email" class="form-control" id="email" name="email" name="username" placeholder="Ingrese su correo electronico" required>
+                            <label for="floatingInput">Email</label>
+                        </div>
+
+                        <div class="form-floating m-2">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                            <label for="floatingInput">Contraseña</label>
+                        </div>
+
+                        <div class="form-floating m-2">
+                            <input type="text" class="form-control" id="confirm_password" name="confirm_password" placeholder="Repite la contraseña" required>
+                            <label for="floatingInput">Repite la contraseña</label>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
-            <div class="camposFormulario">
-                <label for="password">Contraseña:</label>
-                <input type="password" class="inputTexto" id="password" name="password" placeholder="Ingrese su contraseña" required>
-            </div>
-
-            <div class="camposFormulario">
-                <label for="confirm_password">Confirmar Contraseña:</label>
-                <input type="password" class="inputTexto" id="confirm_password" name="confirm_password" placeholder="Confirme su contraseña" required>
-            </div>
-
-            <div class="camposFormulario">
-                <label for="mail">Ingrese su correo electronico</label>
-                <input type="email" class="inputTexto" id="email" name="email" placeholder="Ingrese su correo electronico">
+            <div class="d-grid gap-2 col-3 mx-auto">
+                <button type="submit" class="btn btn-dark p-3">Registrarse</button>
             </div>
 
             <?php
@@ -47,11 +44,22 @@ include ("../Layouts/header.php");
             }
             ?>
 
-            <input type="submit" class="inputSubmit" value="Registrarse">
         </form>
 
-        <a href="../index.php">Ya tienes cuenta? Inicia sesión aquí</a>
-    </div>
-</main>
-</body>
-</html>
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mx-auto p-2">
+
+                    <button type="button" class="btn btn-secondary justify-content-center m-2" href="../index.php"
+                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                        ¿Ya tienes cuenta? Inicia sesión aquí
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+
+<?php
+include ("../Layouts/footer.php");
+?>

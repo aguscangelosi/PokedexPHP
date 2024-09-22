@@ -1,32 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Pokedex</title>
-    <link rel="stylesheet" href="../Styles/inicio.css"> <!-- Enlace al archivo CSS -->
-</head>
-<body>
 <?php
 include ("../Layouts/header.php");
 ?>
 
-<main>
-    <div class="containerMain">
+<div class="container-fluid">
 
+    <form method="get" action="buscar.php" class="container text-center">
 
-        <!-- Formulario de búsqueda -->
-        <form action="buscar.php" method="GET">
-            <div class="camposFormulario">
-                <label for="search">Buscar Pokemon:</label>
-                <input type="text" class="inputTexto" id="search" name="search" placeholder="Escribe el nombre de un pokemon">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mx-auto p-2">
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="search" placeholder="Pokémon" required>
+                        <label for="floatingInput">Pokémon</label>
+                    </div>
+
+                </div>
             </div>
-            <input type="submit" class="inputSubmit" value="Buscar">
-        </form>
+        </div>
+
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <button type="submit" class="btn btn-dark">Buscar</button>
+        </div>
+
+    </form>
+
+</div>
 
 
-
-    </div>
-</main>
-</body>
-</html>
+<?php
+include ("../Layouts/footer.php");
+?>
