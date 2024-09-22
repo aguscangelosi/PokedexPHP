@@ -1,11 +1,5 @@
 <?php
 session_start();
-//
-//
-//if (!$conn) {
-//    die("Connection failed: " . mysqli_connect_error());
-//}
-
 
 class Database
 {
@@ -15,8 +9,6 @@ class Database
     private $password;
     public $conn;
 
-
-    // Constructor para establecer los parámetros de conexión
     public function __construct()
     {
         $config = parse_ini_file('./configBD.ini');
@@ -25,11 +17,13 @@ class Database
         $this->password = $config['password'];
         $this->db_name = $config['database'];
 
-
         try {
             $this->conn = mysqli_connect($this->host, $this->username, $this->password, $this->db_name);
+            if (!$this->conn) {
+                die("Error en la conexion: " . mysqli_connect_error());
+            }
         } catch (PDOException $e) {
-            echo "Connection";
+            echo "Error en la conexion: " . $e->getMessage();
         }
     }
 
