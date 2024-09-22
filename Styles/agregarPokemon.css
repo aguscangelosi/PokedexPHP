@@ -1,0 +1,42 @@
+*{
+ color: white;
+}
+
+input{
+    background: #00bfbf;
+}
+option{
+    color: black;
+}
+
+#contenedor-principal{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#agregar-pokemon{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-add{
+    width: 500px;
+    margin: 10px 0px;
+}
+
+h1{
+    text-align: center;
+    background: #0d0d50;
+    padding: 20px;
+    border-radius: 10px;
+}
+.input-principal{
+    background: none;
+    display: none;
+}
+.button-add{
+    justify-content: center;
+    margin-left: 170px;
+}
