@@ -13,7 +13,7 @@ class Database
 
     public function __construct()
     {
-        $config = parse_ini_file('./configBD.ini');
+        $config = parse_ini_file('../configBD.ini');
         $this->host = $config['host'];
         $this->username = $config['username'];
         $this->password = $config['password'];

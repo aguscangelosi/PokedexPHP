@@ -11,7 +11,7 @@ include ("../Layouts/header.php");
                 <div class="col-md-4 mx-auto p-2">
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="search" placeholder="Pokémon" required>
+                        <input type="text" class="form-control" id="search" placeholder="Pokémon" name="pokemon-buscado" required>
                         <label for="floatingInput">Pokémon</label>
                     </div>
 

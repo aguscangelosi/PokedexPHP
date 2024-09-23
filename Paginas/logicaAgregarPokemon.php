@@ -51,10 +51,19 @@
     }
     //Imprimo por pantalla la imagen del tipo de pokemon
     $imagenElegida = transformarTipoDePokemonEnImagen();
-    echo "<img src='$imagenElegida' alt='$tipo'>";
-/*
-    USE test;
+    echo "<img src='$imagenElegida' alt='$tipo'> <br>";
 
-    INSERT INTO pokemon(numero_identificador, imagen, nombre, tipo, descripcion, informacion)
-    VALUES($numeroIdentficador, $tipo, $nombrePokemon, "e", $descripcion, $informacion);
-*/
+    $insersionSql = "INSERT INTO pokemon(numero_identificador, imagen, nombre, tipo, descripcion, informacion)
+    VALUES(?,?,?,?,?,?)";
+
+$stmt = $conn->prepare($insersionSql);
+$stmt->bind_param("isssss", $numeroIdentificador, $imagen, $nombrePokemon, $tipo, $descripcion, $informacion);
+$stmt->execute();
+if($stmt->execute()){
+    echo "Se pudo insertar correctamente el pokemon";
+}else{
+    echo "Error, no se pudo insertar el pokemon";
+}
+
+$stmt->close();
+$conn->close();
