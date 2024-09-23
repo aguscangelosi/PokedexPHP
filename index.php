@@ -33,6 +33,8 @@ include ("Layouts/header.php");
                 <?php endif; ?>
             </form>
 
+            <a href="Paginas/registroUsuario.php">Registrarse</a>
+
         </div>
     </main>
 </body>

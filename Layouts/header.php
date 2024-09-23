@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <a class="navbar-brand p-2"><img src="../Imagenes/pokebola.png" alt="Logo" height="30" class="d-inline-block align-text-top">
                 <img class="" src="../Imagenes/LogoPokedex.png" alt="Logo Pokedex" height="45"></a>
-                <button class="btn btn-outline-light" type="submit">Iniciar sesión</button>
+                <button class="btn btn-outline-light" type="submit"><a href="../index.php">Iniciar sesión</a></button>
         </div>
     </nav>
 
