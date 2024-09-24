@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     // TODO: guardar los datos en la base de datos si todo esta bien
 
-    header('Location: ../index.php');
+    header('Location: ../login.php');
 }
 
 ?>

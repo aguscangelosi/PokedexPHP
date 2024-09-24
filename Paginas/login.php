@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Styles/styles.css">
+    <link rel="stylesheet" href="../Styles/styles.css">
     <title>Poedex | Iniciar Sesión</title>
 </head>
 <body>
 <?php
-include ("Layouts/header.php");
+include("../Shared/header.php");
 ?>
 
     <main>
         <div class="containerMain">
             <h1>Iniciar Sesión</h1>
 
-            <form method="POST" action="auth.php">
+            <form method="POST" action="../services/auth.php">
                 <div class="camposFormulario">
                     <label for="username">Usuario:</label>
                     <input class="inputTexto" type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
@@ -33,7 +33,7 @@ include ("Layouts/header.php");
                 <?php endif; ?>
             </form>
 
-            <a href="Paginas/registroUsuario.php">Registrarse</a>
+            <a href="registroUsuario.php">Registrarse</a>
 
         </div>
     </main>

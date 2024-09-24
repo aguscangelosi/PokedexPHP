@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    header("Location: ../index.php");
+    header("Location: ../login.php");
     exit();
 }
 
 
-include ("../Layouts/header.php");
+include("../Shared/header.php");
 ?>
 
     <form action="register.php" method="POST">
@@ -63,4 +63,4 @@ include ("../Layouts/header.php");
         ?>
     </form>
 
-<?php include ("../Layouts/footer.php"); ?>
+<?php include("../Shared/footer.php"); ?>

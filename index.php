@@ -1,10 +1,10 @@
 <?php
-include ("../Layouts/header.php");
+include("./Shared/header.php");
 ?>
 
 <div class="container-fluid">
 
-    <form method="get" action="buscar.php" class="container text-center">
+    <form method="get" action="services/buscar.php" class="container text-center">
 
         <div class="container text-center">
             <div class="row justify-content-center">
@@ -25,9 +25,13 @@ include ("../Layouts/header.php");
 
     </form>
 
+    <?php
+    include_once "./Shared/tabla_pokemons.php";
+    ?>
+
 </div>
 
 
 <?php
-include ("../Layouts/footer.php");
+include("./Shared/footer.php");
 ?>

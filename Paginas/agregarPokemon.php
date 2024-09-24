@@ -1,10 +1,10 @@
 <?php
-include ("../Layouts/header.php");
+include("../Shared/header.php");
 ?>
 
     <h1 class="fw-bold text-center p-3">Añadir Pokemón</h1>
 
-    <form id="agregar-pokemon mt-3" action="logicaAgregarPokemon.php" method="post">
+    <form id="agregar-pokemon mt-3" action="../services/logicaAgregarPokemon.php" method="post">
 
         <div class="container text-center">
             <div class="row justify-content-center">
@@ -60,5 +60,5 @@ include ("../Layouts/header.php");
 
 
 <?php
-include ("../Layouts/footer.php");
+include("../Shared/footer.php");
 ?>

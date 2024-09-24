@@ -15,7 +15,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     if (!$row = $result->fetch_assoc()) {
         $_SESSION['error'] = "Usuario o contraseña incorrecta.";
-        header('Location: index.php');
+        header('Location: login.php');
         return;
     }
 

@@ -1,5 +1,5 @@
 <?php
-include ("../Layouts/header.php");
+include("../Shared/header.php");
 require_once('../config/Database.php');
 $conn = (new Database)->getConnection();
 $pokemonBuscado = "";
