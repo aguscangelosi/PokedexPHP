@@ -1,5 +1,5 @@
 <?php
-    require_once('../config/Database.php');
+    include_once ($_SERVER['DOCUMENT_ROOT'].'/PokedexPHP/config/Database.php');
     $conn = (new Database)->getConnection();
 
     $seInicioCorrectamente = false;

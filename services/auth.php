@@ -1,5 +1,5 @@
 <?php
-session_start(); // Asegúrate de iniciar la sesión
+session_start();
 
 require('./config/Database.php');
 
@@ -8,7 +8,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Preparar consulta para evitar inyección SQL
     $stmt = $conn->prepare("SELECT * FROM usuario WHERE username = ? AND password = ?");
     $stmt->bind_param('ss', $username, $password);
     $stmt->execute();
