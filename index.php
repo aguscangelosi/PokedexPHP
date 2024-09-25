@@ -3,7 +3,7 @@ include("./Shared/header.php");
 ?>
 
 <div class="container-fluid">
-                            <!--Esta bien esto-->
+
     <form method="get" class="container text-center" role="search">
 
         <div class="container text-center">
@@ -33,5 +33,6 @@ include("./Shared/header.php");
 
 
 <?php
+var_dump($_SESSION);
 include("./Shared/footer.php");
 ?>

@@ -8,8 +8,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $_SESSION['usuario'] = $username;
-
     $stmt = $conn->prepare("SELECT * FROM usuario WHERE username = ? AND password = ?");
     $stmt->bind_param('ss', $username, $password);
     $stmt->execute();
@@ -17,10 +15,19 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     if (!$row = $result->fetch_assoc()) {
         $_SESSION['error'] = "Usuario o contraseña incorrecta.";
-        header('Location: ../index.php');
+        header('Location: ../Paginas/login.php');
         return;
     }
 
-    header('Location: tabla_pokemons.php');
+//    if($row['rol_id'] == 2){
+    $_SESSION['usuario'] = $username;
+//    }
+
+    if($row['rol_id'] == 1){
+        $_SESSION['admin'] = true;
+    }
+
+    header('Location: ../index.php');
+    exit();
 }
-?>
+
