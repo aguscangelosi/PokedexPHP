@@ -1,12 +1,14 @@
 <?php
 session_start();
 
-require('./config/Database.php');
+require('../config/Database.php');
 
 $conn = (new Database)->getConnection();
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
+
+    $_SESSION['usuario'] = $username;
 
     $stmt = $conn->prepare("SELECT * FROM usuario WHERE username = ? AND password = ?");
     $stmt->bind_param('ss', $username, $password);
@@ -15,7 +17,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     if (!$row = $result->fetch_assoc()) {
         $_SESSION['error'] = "Usuario o contraseña incorrecta.";
-        header('Location: login.php');
+        header('Location: ../index.php');
         return;
     }
 

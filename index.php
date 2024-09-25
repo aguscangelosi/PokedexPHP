@@ -3,15 +3,15 @@ include("./Shared/header.php");
 ?>
 
 <div class="container-fluid">
-
-    <form method="get" action="services/buscar.php" class="container text-center">
+                            <!--Esta bien esto-->
+    <form method="get" class="container text-center" role="search">
 
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-md-4 mx-auto p-2">
 
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="search" placeholder="Pokémon" name="pokemon-buscado" required>
+                        <input type="search" class="form-control" id="search" placeholder="Pokémon" name="pokemon-buscado">
                         <label for="floatingInput">Pokémon</label>
                     </div>
 

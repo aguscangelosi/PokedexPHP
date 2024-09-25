@@ -11,8 +11,24 @@ $query = "SELECT id,
                 nombre, 
                 tipo, 
                 descripcion  FROM pokemon";
+
+$result = mysqli_query($conn, $query);
+$search = isset($_GET['pokemon-buscado']) ? $_GET['pokemon-buscado'] : '';
+$querySelect = "SELECT * FROM pokemon";
+$query = "";
+
+if (!empty($search)) {
+    $query = $querySelect . " WHERE nombre LIKE '%$search%' OR tipo LIKE '%$search%' OR nombre LIKE '%$search%'";
+}else{
+    $query = $querySelect;
+}
 $result = mysqli_query($conn, $query);
 
+$noexiste = mysqli_num_rows($result) == 0;
+
+if ($noexiste){
+    $result = mysqli_query($conn, $querySelect);
+}
 echo '<div class="container-fluid">';
 echo '<table class="table table-hover">';
 
@@ -52,6 +68,4 @@ if (isset($_SESSION["usuario"])) {
     echo '</form>';
 
 }
-
-
 mysqli_close($conn);
