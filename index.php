@@ -33,6 +33,6 @@ include("./Shared/header.php");
 
 
 <?php
-var_dump($_SESSION);
+//var_dump($_SESSION);
 include("./Shared/footer.php");
 ?>

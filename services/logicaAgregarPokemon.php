@@ -1,69 +1,47 @@
 <?php
-    include_once($_SERVER['DOCUMENT_ROOT'] . '/PokedexPHP/config/Database.php');
-    $conn = (new Database)->getConnection();
+include_once($_SERVER['DOCUMENT_ROOT'] . '/PokedexPHP/config/Database.php');
+$conn = (new Database)->getConnection();
 
-    $seInicioCorrectamente = false;
+$seInicioCorrectamente = false;
 
-    if(isset($_POST["nombre-pokemon"]) && isset($_POST["numero-identficador"])
-        && isset($_POST["tipo-pokemon"]) && isset($_POST["descripcion-pokemon"]) && isset($_POST["informacion-pokemon"])){
-        $nombrePokemon = $_POST["nombre-pokemon"];
-        $numeroIdentficador = $_POST["numero-identficador"];
-        $tipo = $_POST["tipo-pokemon"];
-        $descripcion = $_POST["descripcion-pokemon"];
-        $informacion = $_POST["informacion-pokemon"];
-        echo "Datos ingresados correctamente! <br>";
-        $seInicioCorrectamente = true;
+if (isset($_POST["nombre-pokemon"]) && isset($_POST["numero-identficador"])
+    && isset($_POST["tipo-pokemon"]) && isset($_POST["descripcion-pokemon"]) && isset($_POST["informacion-pokemon"]) && isset($_FILES['imagen-pokemon'])) {
 
-    }else{
-        die("ERROR, falta de datos");
-    }
+    $nombrePokemon = $_POST["nombre-pokemon"];
+    $numeroIdentficador = $_POST["numero-identficador"];
+    $tipo = $_POST["tipo-pokemon"];
+    $descripcion = $_POST["descripcion-pokemon"];
+    $informacion = $_POST["informacion-pokemon"];
 
-    function transformarTipoDePokemonEnImagen(){
-        $imagenElegida = "";
-        $tipo = $_POST["tipo-pokemon"];
-        switch ($tipo) {
-            case "agua":
-                $imagenElegida = "../img_tipo/Agua.png";
-                break;
-            case "dragon":
-                $imagenElegida = "../img_tipo/Dragon.png";
-                break;
-            case "electrico":
-                $imagenElegida = "../img_tipo/Electrico.png";
-                break;
-            case "fantasma":
-                $imagenElegida = "../img_tipo/Fantasma.png";
-                break;
-            case "fuego":
-                $imagenElegida = "../img_tipo/Fuego.png";
-                break;
-            case "normal":
-                $imagenElegida = "../img_tipo/Normal.png";
-                break;
-            case "hierba":
-                $imagenElegida = "../img_tipo/Planta.png";
-                break;
-            case "psiquico":
-                $imagenElegida = "../img_tipo/Psiquico.png";
-                break;
-        }
-        return $imagenElegida;
-    }
-    //Imprimo por pantalla la imagen del tipo de pokemon
-    $imagenElegida = transformarTipoDePokemonEnImagen();
-    echo "<img src='$imagenElegida' alt='$tipo'> <br>";
+    // Manejo de la imagen
+    $imagen = $_FILES['imagen-pokemon'];
+    $imagenNombre = $imagen['name'];
+    $imagenTmp = $imagen['tmp_name'];
+    $directorioDestino = "../img_pokemon/";
 
-    $insersionSql = "INSERT INTO pokemon(numero_identificador, imagen, nombre, tipo, descripcion, informacion)
-    VALUES(?,?,?,?,?,?)";
+    // Mover la imagen al directorio
+    $rutaFinal = $directorioDestino . $imagenNombre;
+    move_uploaded_file($imagenTmp, $rutaFinal);
+
+    echo "Datos ingresados correctamente y archivo subido! <br>";
+    $seInicioCorrectamente = true;
+
+} else {
+    die("ERROR, falta de datos");
+}
+
+// Inserción en la base de datos
+$insersionSql = "INSERT INTO pokemon(numero_identificador, imagen, nombre, tipo, descripcion, informacion)
+VALUES(?,?,?,?,?,?)";
 
 $stmt = $conn->prepare($insersionSql);
-$stmt->bind_param("isssss", $numeroIdentificador, $imagen, $nombrePokemon, $tipo, $descripcion, $informacion);
-$stmt->execute();
-if($stmt->execute()){
+$stmt->bind_param("isssss", $numeroIdentficador, $rutaFinal, $nombrePokemon, $tipo, $descripcion, $informacion);
+if ($stmt->execute()) {
     echo "Se pudo insertar correctamente el pokemon";
-}else{
+} else {
     echo "Error, no se pudo insertar el pokemon";
 }
 
 $stmt->close();
 $conn->close();
+?>

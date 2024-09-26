@@ -4,7 +4,7 @@ include("../Shared/header.php");
 
     <h1 class="fw-bold text-center p-3">Añadir Pokemón</h1>
 
-    <form id="agregar-pokemon mt-3" action="../services/logicaAgregarPokemon.php" method="post">
+    <form id="agregar-pokemon mt-3" action="../services/logicaAgregarPokemon.php" method="post" enctype="multipart/form-data">
 
         <div class="container text-center">
             <div class="row justify-content-center">
@@ -21,14 +21,14 @@ include("../Shared/header.php");
                     </div>
 
                     <div class="m-2">
-                        <select class="form-select" multiple aria-label="Multiple select example" multiple name="tipo-pokemon" required>
+                        <select class="form-select" multiple aria-label="Multiple select example" name="tipo-pokemon" required>
                             <option value="normal">Normal</option>
                             <option value="agua">Planta</option>
                             <option value="agua">Agua</option>
                             <option value="fuego">Fuego</option>
                             <option value="dragon">Dragón</option>
                             <option value="electrico">Eléctrico</option>
-                            <option value="fantasma">Fastasma</option>
+                            <option value="fantasma">Fantasma</option>
                             <option value="psiquico">Psíquico</option>
                         </select>
                     </div>
@@ -45,7 +45,7 @@ include("../Shared/header.php");
 
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Imagen del pokémon</label>
-                        <input class="form-control" type="file" id="formFile" required>
+                        <input class="form-control" type="file" id="formFile" name="imagen-pokemon" required>
                     </div>
 
                 </div>
@@ -57,7 +57,6 @@ include("../Shared/header.php");
         </div>
 
     </form>
-
 
 <?php
 include("../Shared/footer.php");
