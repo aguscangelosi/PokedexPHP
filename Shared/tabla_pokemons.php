@@ -19,14 +19,14 @@ $query = "";
 
 if (!empty($search)) {
     $query = $querySelect . " WHERE nombre LIKE '%$search%' OR tipo LIKE '%$search%' OR nombre LIKE '%$search%'";
-}else{
+} else {
     $query = $querySelect;
 }
 $result = mysqli_query($conn, $query);
 
 $noexiste = mysqli_num_rows($result) == 0;
 
-if ($noexiste){
+if ($noexiste) {
     $result = mysqli_query($conn, $querySelect);
 }
 echo '<div class="container-fluid">';
@@ -42,15 +42,15 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo '<tr>'; // Asegúrate de abrir la etiqueta <tr>
 
     echo '<td>' . $row['numero_identificador'] . '</td>';
-    echo '<td>' . '<img src="img_pokemon/' . $row['imagen'] . '" alt="' . $row['nombre'] . '" width="100" height="90">' . '</td>';
+    echo '<td>' . '<img src="img_pokemon/' . $row['imagen'] . '.png" alt="' . $row['nombre'] . '" width="100" height="90">' . '</td>';
     echo '<td>' . $row['nombre'] . '</td>';
     echo '<td>' . '<img src="img_tipo/' . $row['tipo'] . '.png" alt="' . $row['tipo'] . '" width="80" height="20">' . '</td>';
     echo '<td>' . $row['descripcion'] . '</td>';
 
     if (isset($_SESSION["admin"])) {
         echo '<td><div class="d-flex justify-content-between">
-            <form action="modificar_pokemon.php" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-primary" type="submit">Modificar</button></form>
-            <form action="eliminar_pokemon.php" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-danger" type="submit">Baja</button></form>
+            <form action="modificar_pokemon . php" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-primary" type="submit">Modificar</button></form>
+            <form action="eliminar_pokemon . php" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-danger" type="submit">Baja</button></form>
             </div></td>';
     }
 
