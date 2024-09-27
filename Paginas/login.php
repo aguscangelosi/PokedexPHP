@@ -1,41 +1,47 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../Styles/styles.css">
-    <title>Poedex | Iniciar Sesión</title>
-</head>
-<body>
 <?php
 include("../Shared/header.php");
 ?>
 
-    <main>
-        <div class="containerMain">
-            <h1>Iniciar Sesión</h1>
+    <h1 class="text-center fw-bold">Iniciar Sesión</h1>
 
-            <form method="POST" action="../services/auth.php">
-                <div class="camposFormulario">
-                    <label for="username">Usuario:</label>
-                    <input class="inputTexto" type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
+    <form action="../services/auth.php" method="POST" class="mb-5">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mx-auto p-2">
+                    <div class="form-floating m-2">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required>
+                        <label for="floatingInput">Usuario</label>
+                    </div>
+
+                    <div class="form-floating m-2">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                        <label for="floatingInput">Contraseña</label>
+                    </div>
                 </div>
-                <div class="camposFormulario">
-                    <label for="password">Contraseña:</label>
-                    <input class="inputTexto" type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
-                </div>
-                <button class="inputSubmit" type="submit">Iniciar Sesión</button>
-                <?php
-
-                if (isset($_SESSION['error'])): ?>
-                    <p style="color: red;"><?php echo $_SESSION['error']; ?></p>
-                    <?php unset($_SESSION['error']); ?>
-                <?php endif; ?>
-            </form>
-
-            <a href="registroUsuario.php">Registrarse</a>
-
+            </div>
         </div>
-    </main>
-</body>
-</html>
+
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <button type="submit" class="btn btn-dark p-3">Iniciar sesión</button>
+        </div>
+
+        <?php
+
+            if (isset($_SESSION['error'])): ?>
+                <p style="color: red;"><?php echo $_SESSION['error']; ?></p>
+                <?php unset($_SESSION['error']); ?>
+
+        <?php endif; ?>
+
+        <div class="text-center mt-2">
+            <button type="button" class="btn btn-dark"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                <a href="registroUsuario.php" class="btn-dark text-light text-decoration-none">Registrarse</a>
+            </button>
+        </div>
+
+    </form>
+
+<?php
+include("../Shared/footer.php");
+?>

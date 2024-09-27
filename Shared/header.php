@@ -12,23 +12,21 @@
     <nav class="navbar">
         <div class="container-fluid">
             <?php
-            echo '<a href="/PokedexPHP/index.php" class="navbar-brand p-2">
-                <img src="/PokedexPHP/Imagenes/pokebola.png" alt="Logo" height="30" class="d-inline-block align-text-top">
-                <img src="/PokedexPHP/Imagenes/LogoPokedex.png" alt="Logo Pokedex" height="45">
-            </a>
-            <button class="btn btn-outline-light" type="submit">';
+                echo '<a href="/PokedexPHP/index.php" class="navbar-brand p-2">
+                        <img src="/PokedexPHP/Imagenes/pokebola.png" alt="Logo" height="30" class="d-inline-block align-text-top">
+                        <img src="/PokedexPHP/Imagenes/LogoPokedex.png" alt="Logo Pokedex" height="45">
+                    </a>
+            <button class="btn p-3" type="submit">';
                 session_start();
                 if(isset($_SESSION['usuario'])){
                     echo '<form action="/PokedexPHP/services/logout.php" method="POST" style="display:inline;"> <input type="hidden" name="userr">
-    <button type="submit" class="text-decoration-none text-light" style="background:none; border:none; cursor:pointer; padding:0; color:inherit;">Cerrar sesión</button>
-</form>
-';
+                            <button type="submit" class="btn btn-outline-light">Cerrar sesión</button>
+                        </form>';
                 }else{
-                echo '<a href="/PokedexPHP/Paginas/login.php" class="text-decoration-none text-light">Iniciar sesión</a>';
+                    echo '<a href="/PokedexPHP/Paginas/login.php" class="btn btn-outline-light text-decoration-none">Iniciar sesión</a>';
                 }
-                ?>
+            ?>
 
-            </button>
         </div>
     </nav>
 </header>

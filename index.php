@@ -4,6 +4,8 @@ include("./Shared/header.php");
 
 <div class="container-fluid">
 
+    <h1 class="text-center fw-bold">¿Quién es ese Pokémon?</h1>
+
     <form method="get" class="container text-center" role="search">
 
         <div class="container text-center">
@@ -12,7 +14,7 @@ include("./Shared/header.php");
 
                     <div class="form-floating">
                         <input type="search" class="form-control" id="search" placeholder="Pokémon" name="pokemon-buscado">
-                        <label for="floatingInput">Pokémon</label>
+                        <label for="floatingInput">Búsqueda</label>
                     </div>
 
                 </div>
@@ -20,7 +22,7 @@ include("./Shared/header.php");
         </div>
 
         <div class="d-grid gap-2 col-3 mx-auto">
-            <button type="submit" class="btn btn-dark">Buscar</button>
+            <button type="submit" class="btn btn-dark p-3">Buscar</button>
         </div>
 
     </form>

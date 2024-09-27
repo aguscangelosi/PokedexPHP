@@ -1,4 +1,5 @@
 <?php
+
 session_start(); // Siempre al inicio del script
 
 // Verificar si se ha enviado el formulario
@@ -20,17 +21,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 
-
 include("../Shared/header.php");
 ?>
 
-    <form action="register.php" method="POST">
+    <h1 class="text-center fw-bold">Registrarse</h1>
+
+    <form action="register.php" method="POST" class="mb-5">
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-md-4 mx-auto p-2">
                     <div class="form-floating m-2">
                         <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required>
-                        <label for="floatingInput">Usuario</label>
+                        <label for="floatingInput">Nombre de usuario</label>
                     </div>
 
                     <div class="form-floating m-2">

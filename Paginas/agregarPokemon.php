@@ -4,7 +4,7 @@ include("../Shared/header.php");
 
     <h1 class="fw-bold text-center p-3">Añadir Pokemón</h1>
 
-    <form id="agregar-pokemon mt-3" action="../services/logicaAgregarPokemon.php" method="post" enctype="multipart/form-data">
+    <form id="agregar-pokemon mt-3" action="../services/logicaAgregarPokemon.php" method="post" enctype="multipart/form-data" class="mb-5">
 
         <div class="container text-center">
             <div class="row justify-content-center">
