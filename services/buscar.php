@@ -22,12 +22,7 @@ if($sePudo){
         echo $pokemonActual['tipo'];
         echo $pokemonActual['descripcion'];
         echo $pokemonActual['imagen'];
-        
     }
 }
-/*
-while(){
 
-}
-*/
 echo "<br>" . $resultado['nombre'];

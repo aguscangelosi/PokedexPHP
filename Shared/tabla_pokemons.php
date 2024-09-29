@@ -29,7 +29,7 @@ $noexiste = mysqli_num_rows($result) == 0;
 if ($noexiste) {
     $result = mysqli_query($conn, $querySelect);
 }
-echo '<div class="container-fluid">';
+echo '<div class="container-fluid text-center p-3 mt-3 mb-3">';
 echo '<table class="table table-hover">';
 
 if (isset($_SESSION["admin"])) {
@@ -41,11 +41,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo '<tbody>';
     echo '<tr>';
 
-    echo '<td>' . $row['numero_identificador'] . '</td>';
-    echo '<td>' . '<img src="img_pokemon/' . $row['imagen'] . '" alt="' . $row['nombre'] . '" width="100" height="90">' . '</td>';
-    echo '<td>' . $row['nombre'] . '</td>';
-    echo '<td>' . '<img src="img_tipo/' . $row['tipo'] . '.png" alt="' . $row['tipo'] . '" width="80" height="20">' . '</td>';
-    echo '<td>' . $row['descripcion'] . '</td>';
+    echo '<td class="align-middle">' . $row['numero_identificador'] . '</td>';
+    echo '<td class="align-middle">' . '<img src="img_pokemon/' . $row['imagen'] . '" alt="' . $row['nombre'] . '" width="100" height="90">' . '</td>';
+    echo '<td class="align-middle">' . $row['nombre'] . '</td>';
+    echo '<td class="align-middle">' . '<img src="img_tipo/' . $row['tipo'] . '.png" alt="' . $row['tipo'] . '" width="80" height="20">' . '</td>';
+    echo '<td class="align-middle">' . $row['descripcion'] . '</td>';
 
     if (isset($_SESSION["admin"])) {
         echo '<td><div class="d-flex justify-content-between">
