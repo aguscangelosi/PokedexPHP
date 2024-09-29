@@ -13,13 +13,12 @@ if (isset($_POST["nombre-pokemon"]) && isset($_POST["numero-identficador"])
     $descripcion = $_POST["descripcion-pokemon"];
     $informacion = $_POST["informacion-pokemon"];
 
-    // Manejo de la imagen
     $imagen = $_FILES['imagen-pokemon'];
     $imagenNombre = $imagen['name'];
     $imagenTmp = $imagen['tmp_name'];
     $directorioDestino = "../img_pokemon/";
 
-    // Mover la imagen al directorio
+
     $rutaFinal = $directorioDestino . $imagenNombre;
     move_uploaded_file($imagenTmp, $rutaFinal);
 
@@ -30,16 +29,29 @@ if (isset($_POST["nombre-pokemon"]) && isset($_POST["numero-identficador"])
     die("ERROR, falta de datos");
 }
 
-// Inserción en la base de datos
+if (isset($_POST['id']) && !empty($_POST['id'])) {
+    $id = $_POST['id'];
+    $insersionSql = "UPDATE pokemon 
+                     SET numero_identificador = ?, imagen = ?, nombre = ?, tipo = ?, descripcion = ?, informacion = ? 
+                     WHERE id = ?";
+} else {
 $insersionSql = "INSERT INTO pokemon(numero_identificador, imagen, nombre, tipo, descripcion, informacion)
 VALUES(?,?,?,?,?,?)";
+}
 
 $stmt = $conn->prepare($insersionSql);
-$stmt->bind_param("isssss", $numeroIdentficador, $rutaFinal, $nombrePokemon, $tipo, $descripcion, $informacion);
+if (isset($_POST['id']) && !empty($_POST['id'])) {
+    $stmt->bind_param("ssssssi", $numeroIdentficador, $imagenNombre, $nombrePokemon, $tipo, $descripcion, $informacion, $id);
+} else {
+    $stmt->bind_param("ssssss", $numeroIdentficador, $imagenNombre, $nombrePokemon, $tipo, $descripcion, $informacion);
+}
 if ($stmt->execute()) {
     echo "Se pudo insertar correctamente el pokemon";
+    header('Location: /PokedexPHP/');
 } else {
     echo "Error, no se pudo insertar el pokemon";
+    session_start();
+    $_SESSION["error"] = "No se pudo insertar el pokemon";
 }
 
 $stmt->close();

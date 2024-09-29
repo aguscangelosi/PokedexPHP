@@ -33,12 +33,6 @@ include("../Shared/header.php");
 
         <?php endif; ?>
 
-        <div class="text-center mt-2">
-            <button type="button" class="btn btn-dark"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                <a href="registroUsuario.php" class="btn-dark text-light text-decoration-none">Registrarse</a>
-            </button>
-        </div>
 
     </form>
 
