@@ -39,7 +39,7 @@ if (isset($_SESSION["admin"])) {
 }
 while ($row = mysqli_fetch_assoc($result)) {
     echo '<tbody>';
-    echo '<tr>';
+    echo '<tr onclick="window.location.href=\'/PokedexPHP/Paginas/vistaDetalle.php?id=' . $row['id'] . '\'">';
 
     echo '<td class="align-middle">' . $row['numero_identificador'] . '</td>';
     echo '<td class="align-middle">' . '<img src="img_pokemon/' . $row['imagen'] . '" alt="' . $row['nombre'] . '" width="100" height="90">' . '</td>';
@@ -50,11 +50,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     if (isset($_SESSION["admin"])) {
         echo '<td><div class="d-flex justify-content-between">
             <form action="Paginas/agregarPokemon.php?id=' . $row['id'] .'" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-primary" type="submit">Modificar</button></form>
-            <form action="eliminar_pokemon . php" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-danger" type="submit">Baja</button></form>
+            <form action="Paginas/borrarPokemon.php?id=' . $row['id'] .'"" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-danger" type="submit">Baja</button></form>
             </div></td>';
     }
 
-    echo '</tr>'; // Cerrar el <tr>
+    echo '</tr>';
 }
 echo '</tbody></table>';
 echo '</div>';
