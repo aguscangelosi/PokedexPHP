@@ -3,32 +3,28 @@
 require_once('config/Database.php');
 
 $conn = (new Database)->getConnection();
-
-
-$query = "SELECT id, 
-                numero_identificador, 
-                imagen, 
-                nombre, 
-                tipo, 
-                descripcion  FROM pokemon";
-
-$result = mysqli_query($conn, $query);
-$search = isset($_GET['pokemon-buscado']) ? $_GET['pokemon-buscado'] : '';
 $querySelect = "SELECT * FROM pokemon";
-$query = "";
-
+$search = isset($_GET['pokemon-buscado']) ? $_GET['pokemon-buscado'] : '';
 if (!empty($search)) {
     $query = $querySelect . " WHERE nombre LIKE '%$search%' OR tipo LIKE '%$search%' OR nombre LIKE '%$search%'";
 } else {
     $query = $querySelect;
 }
+
 $result = mysqli_query($conn, $query);
 
-$noexiste = mysqli_num_rows($result) == 0;
 
-if ($noexiste) {
-    $result = mysqli_query($conn, $querySelect);
+if (mysqli_num_rows($result) == 0) {
+    $_SESSION['error-busqueda'] = "No se encontraron registros con ese término de búsqueda.";
+
+    // Realizamos una nueva consulta para obtener todos los valores
+    $query = $querySelect;
+    $result = mysqli_query($conn, $query);
+    header('Location: /PokedexPHP/index.php');
+} else {
+    unset($_SESSION['error-busqueda']);
 }
+
 echo '<div class="container-fluid text-center p-3 mt-3 mb-3">';
 echo '<table class="table table-hover">';
 
@@ -50,7 +46,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     if (isset($_SESSION["admin"])) {
         echo '<td><div class="d-flex justify-content-between">
             <form action="Paginas/agregarPokemon.php?id=' . $row['id'] .'" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-primary" type="submit">Modificar</button></form>
-            <form action="Paginas/borrarPokemon.php?id=' . $row['id'] .'"" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-danger" type="submit">Baja</button></form>
+            <form action="Paginas/borrarPokemon.php?id=' . $row['id'] .'" method="post"><input type="hidden" name="pokemon_id" value="' . $row['id'] . '"><button class="btn btn-outline-danger" type="submit">Baja</button></form>
             </div></td>';
     }
 
@@ -59,12 +55,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 echo '</tbody></table>';
 echo '</div>';
 
+// Mostrar el botón para agregar un nuevo Pokémon si es admin
 if (isset($_SESSION["admin"])) {
-
     echo '<div class="d-grid gap-3 w-100 m-3">';
-    echo '<button class="btn btn-outline-success " type="submit"><a href="/PokedexPHP/Paginas/agregarPokemon.php">Nuevo Pokemon</a></button>';
+    echo '<button class="btn btn-outline-success" type="submit"><a href="/PokedexPHP/Paginas/agregarPokemon.php">Nuevo Pokemon</a></button>';
     echo '</div>';
-
 }
 
 mysqli_close($conn);

@@ -6,7 +6,7 @@ include("./Shared/header.php");
 
     <h1 class="text-center fw-bold">¿Quién es ese Pokémon?</h1>
 
-    <form method="get" class="container text-center" role="search">
+    <form method="GET" class="container text-center" role="search">
 
         <div class="container text-center">
             <div class="row justify-content-center">
@@ -25,6 +25,12 @@ include("./Shared/header.php");
             <button type="submit" class="btn btn-dark p-3">Buscar</button>
         </div>
 
+        <?php
+        if (isset($_SESSION['error-busqueda'])): ?>
+            <p style="color: red;"><?php echo $_SESSION['error-busqueda']; ?></p>
+            <?php unset($_SESSION['error-busqueda']); ?>
+
+        <?php endif; ?>
     </form>
 
     <?php
